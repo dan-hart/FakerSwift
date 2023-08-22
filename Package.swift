@@ -1,0 +1,39 @@
+// swift-tools-version: 5.8
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+
+import PackageDescription
+
+let package = Package(
+    name: "FakerSwift",
+    platforms: [
+        .macOS(.v10_15), .iOS(.v13), .tvOS(.v13), .watchOS(.v6),
+    ],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-openapi-generator", .upToNextMinor(from: "0.1.0")),
+        .package(url: "https://github.com/apple/swift-openapi-runtime", .upToNextMinor(from: "0.1.0")),
+        .package(url: "https://github.com/apple/swift-openapi-urlsession", .upToNextMinor(from: "0.1.0")),
+    ],
+
+    targets: [
+        .executableTarget(
+            name: "FakerSwift",
+            dependencies: [
+                .product(
+                    name: "OpenAPIRuntime",
+                    package: "swift-openapi-runtime"
+                ),
+                .product(
+                    name: "OpenAPIURLSession",
+                    package: "swift-openapi-urlsession"
+                ),
+            ],
+            path: "Sources",
+            plugins: [
+                .plugin(
+                    name: "OpenAPIGenerator",
+                    package: "swift-openapi-generator"
+                )
+            ]
+        )
+    ]
+)

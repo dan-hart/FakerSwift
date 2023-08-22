@@ -1,0 +1,270 @@
+openapi: 3.0.3
+info:
+  title: Faker API - by Alessandro Pietrantonio
+  version: 1.0.0
+  contact: {}
+servers:
+- url: https://fakerapi.it
+paths:
+  /api/v1/addresses:
+    get:
+      summary: Addresses
+      description: Get 100 addresses with en_US locale
+      operationId: addresses
+      parameters:
+      - name: _quantity
+        in: query
+        schema:
+          type: string
+          example: '100'
+      - name: _locale
+        in: query
+        schema:
+          type: string
+          example: en_US
+      responses:
+        '200':
+          description: ''
+  /api/v1/books:
+    get:
+      summary: Books
+      description: Get 100 books with en_US locale
+      operationId: books
+      parameters:
+      - name: _quantity
+        in: query
+        schema:
+          type: string
+          example: '100'
+      - name: _locale
+        in: query
+        schema:
+          type: string
+          example: en_US
+      responses:
+        '200':
+          description: ''
+  /api/v1/companies:
+    get:
+      summary: Companies
+      description: Get 100 companies with en_US locale
+      operationId: companies
+      parameters:
+      - name: _quantity
+        in: query
+        schema:
+          type: string
+          example: '100'
+      - name: _locale
+        in: query
+        schema:
+          type: string
+          example: en_US
+      responses:
+        '200':
+          description: ''
+  /api/v1/credit_cards:
+    get:
+      summary: Credit Cards
+      description: Get 100 credit cards with en_US locale
+      operationId: creditCards
+      parameters:
+      - name: _quantity
+        in: query
+        schema:
+          type: string
+          example: '100'
+      - name: _locale
+        in: query
+        schema:
+          type: string
+          example: en_US
+      responses:
+        '200':
+          description: ''
+  /api/v1/images:
+    get:
+      summary: Images
+      description: Get 100 kitten images with height of 300 pixels and locale en_US
+      operationId: images
+      parameters:
+      - name: _quantity
+        in: query
+        schema:
+          type: string
+          example: '100'
+      - name: _locale
+        in: query
+        schema:
+          type: string
+          example: en_US
+      - name: _type
+        in: query
+        schema:
+          type: string
+          example: kittens
+      - name: _height
+        in: query
+        schema:
+          type: string
+          example: '300'
+      responses:
+        '200':
+          description: ''
+  /api/v1/persons:
+    get:
+      summary: Persons
+      description: Get 100 persons with en_US locale and gender female
+      operationId: persons
+      parameters:
+      - name: _quantity
+        in: query
+        schema:
+          type: string
+          example: '100'
+      - name: _locale
+        in: query
+        schema:
+          type: string
+          example: en_US
+      - name: _gender
+        in: query
+        schema:
+          type: string
+          example: female
+      responses:
+        '200':
+          description: ''
+  /api/v1/places:
+    get:
+      summary: Places
+      description: Get 100 places
+      operationId: places
+      parameters:
+      - name: _quantity
+        in: query
+        schema:
+          type: string
+          example: '100'
+      responses:
+        '200':
+          description: ''
+  /api/v1/products:
+    get:
+      summary: Products
+      description: Get 100 products with en_US locale and taxes of 10% and categories
+        type set as string
+      operationId: products
+      parameters:
+      - name: _quantity
+        in: query
+        schema:
+          type: string
+          example: '100'
+      - name: _locale
+        in: query
+        schema:
+          type: string
+          example: en_US
+      - name: _taxes
+        in: query
+        schema:
+          type: string
+          example: '10'
+      - name: _categories_type
+        in: query
+        schema:
+          type: string
+          example: string
+      responses:
+        '200':
+          description: ''
+  /api/v1/texts:
+    get:
+      summary: Texts
+      description: Get 100 texts with it_IT locale and 250 characters length
+      operationId: texts
+      parameters:
+      - name: _quantity
+        in: query
+        schema:
+          type: string
+          example: '100'
+      - name: _locale
+        in: query
+        schema:
+          type: string
+          example: it_IT
+      - name: _characters
+        in: query
+        schema:
+          type: string
+          example: '250'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+                schema:
+                    type: object
+  /api/v1/users:
+    get:
+      summary: Users
+      description: Get 100 users with en_US locale and gender male
+      operationId: users
+      parameters:
+      - name: _quantity
+        in: query
+        schema:
+          type: string
+          example: '100'
+      - name: _gender
+        in: query
+        schema:
+          type: string
+          example: male
+      responses:
+        '200':
+          description: ''
+  /api/v1/custom:
+    get:
+      summary: Custom
+      description: Get 100 rows with first name, last name, country, birthday, email
+        and vat
+      operationId: custom
+      parameters:
+      - name: _quantity
+        in: query
+        schema:
+          type: string
+          example: '100'
+      - name: name
+        in: query
+        schema:
+          type: string
+          example: firstName
+      - name: surname
+        in: query
+        schema:
+          type: string
+          example: lastName
+      - name: from
+        in: query
+        schema:
+          type: string
+          example: country
+      - name: birthday
+        in: query
+        schema:
+          type: string
+          example: date
+      - name: vatId
+        in: query
+        schema:
+          type: string
+          example: vat
+      responses:
+        '200':
+          description: ''
+tags: []
+
