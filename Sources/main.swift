@@ -12,17 +12,17 @@ let client = Client(
 
 let response = try await client.texts(
     .init(
-        query: .init(_quantity: "1", _characters: "250")
+        query: .init(_quantity: "2", _characters: "500")
     )
 )
 
 switch response {
 case .ok(let okResponse):
     switch okResponse.body {
-    case .json(let objectContainer):
-        let value = objectContainer.value as? [String: Any?]
-        let data = value?["data"]
-        print(data)
+    case .json(let texts):
+        for (index, text) in (texts.data ?? []).enumerated() {
+            print("Text \(index + 1): \(text.content ?? "No Content")")
+        }
     }
 case .undocumented(statusCode: let statusCode, _):
     print("🥺 undocumented response: \(statusCode)")
